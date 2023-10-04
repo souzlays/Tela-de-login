@@ -39,8 +39,35 @@ form {
     padding-top: 20px;
 }
 .input-field {
-    margin-bottom: 20px;
+    position: relative;
     
+}    
+form .input-field:first-child {
+    margin-bottom: 1.5rem;
+    
+}
+.input-field .underline::before {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: -5px;
+    left: 0;
+    background: #13131a13;
+}
+.input-field .underline::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: -5px;
+    left: 0;
+    background: #13131a59;
+    transform: scaleX(0);
+    transition: all .3s ease-in-out;
+}
+.input-field input:focus ~ .underline::after{
+    transform: scaleX(1);
 }
 .input-field label {
     display: block;
@@ -52,6 +79,7 @@ form {
     outline: none;
     font-size: 1rem;
     color: #13131a;
+    background-color: #f0f0f5;
 }
 form input[ type="submit"] {
     margin-top: 1rem;
